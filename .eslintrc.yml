@@ -6,3 +6,5 @@ parser:
   babel-eslint
 rules:
   no-console: 0
+  no-plusplus: 0
+  no-trailing-spaces: 0
