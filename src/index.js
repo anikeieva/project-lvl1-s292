@@ -1,47 +1,50 @@
 import readlineSync from 'readline-sync';
 
-let userName;
-
-export const greeting = () => {
-  userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+const getUserName = () => {
+  const userName = readlineSync.question('May I have your name? ');
+  return userName;
 };
 
-export const getEvenOrNot = () => {
-  const getRandomNumber = (min, max) => {
-    const result = (Math.random() * (max - min)) + min;
-    return result;
-  };
-  let counter = 0;
-  const maxIter = 3;
+const startGame = (condition, object) => {
+  const prepareGame = () => {
+    console.log('Welcome to the Brain Games!');
+    let maxIter = 3;
 
-  console.log('');
-
-  while (counter !== maxIter) {
-    const randomNumber = Math.round(getRandomNumber(1, 100));
-
-    console.log(`Question: ${randomNumber}`);
-    const answer = readlineSync.question('Your answer: ');
-
-    const getRightAnswer = () => {
-      if (randomNumber % 2 === 0) {
-        return 'yes';
-      }
-      return 'no';
-    };
-    const rightAnswer = getRightAnswer();
-
-    if (answer === rightAnswer) {
-      console.log('Correct!');
-      counter++;
+    if (condition) {
+      console.log(condition);
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
-      console.log(`Let's try again, ${userName}!`);
-      break;
+      maxIter = 0;
     }
-  }
 
-  if (counter === maxIter) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+    console.log('');
+    const userName = getUserName();
+    console.log(`Hello, ${userName}!`);
+
+    if (condition) {
+      console.log('');
+    }
+
+    for (let i = 0; i < maxIter; i++) {
+      const logicalObj = object();
+      const exp = logicalObj.expression;
+
+      console.log(`Question: ${exp}`);
+      const answer = readlineSync.question('Your answer: ');
+      const rightAnswer = logicalObj.calc;
+
+      if (answer === rightAnswer.toString()) {
+        console.log('Correct!');
+      } else {
+        console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+        console.log(`Let's try again, ${userName}!`);
+        return;
+      }
+    }
+    if (condition) {
+      console.log(`Congratulations, ${userName}!`);
+    }
+  };
+  return prepareGame();
 };
+
+export default startGame;
