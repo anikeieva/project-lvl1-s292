@@ -1,27 +1,21 @@
-import { startGame, getRoundRandomNumber } from '..';
+import startNewGame from '..';
+import getRoundRandomNumber from '../untils';
 
 const gameDiscription = 'Answer "yes" if number even otherwise answer "no".';
 
-const isEven = (n) => {
-  const result = n % 2 === 0;
-  return result;
-};
+const isEven = n => n % 2 === 0;
 
-const getRightAnswer = (n) => {
-  const result = isEven(n) ? 'yes' : 'no';
-  return result;
-};
+const getRightAnswer = n => (isEven(n) ? 'yes' : 'no');
 
-const getGameLogic = () => {
-  const questionExpression = getRoundRandomNumber(1, 100);
-  const rightAnswer = getRightAnswer(questionExpression);
-  const gameLogicObj = {
-    game: 'even',
-    question: questionExpression,
-    answer: rightAnswer,
+const getGameData = () => {
+  const question = getRoundRandomNumber(1, 100);
+  const answer = getRightAnswer(question);
+  const gameData = {
+    question,
+    answer,
   };
-  return gameLogicObj;
+  return gameData;
 };
 
-const runGame = () => startGame(gameDiscription, getGameLogic);
+const runGame = () => startNewGame(gameDiscription, getGameData);
 export default runGame;

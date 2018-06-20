@@ -1,39 +1,39 @@
-import { startGame, getRoundRandomNumber } from '..';
+import startNewGame from '..';
+import getRoundRandomNumber from '../untils';
 
 const gameDiscription = 'What is the result of the expression?';
 
-const getRandomOperator = () => {
-  const operators = ['+', '-', '*'];
+const getRandomOperator = (operators) => {
   const index = getRoundRandomNumber(0, operators.length - 1);
   const operator = operators[index];
   return operator;
 };
 
-const getGameLogic = () => {
+const getGameData = () => {
+  const operators = ['+', '-', '*'];
   const operand1 = getRoundRandomNumber(1, 30);
   const operand2 = getRoundRandomNumber(1, 30);
-  const operator = getRandomOperator();
+  const operator = getRandomOperator(operators);
 
-  const getCalc = () => {
-    switch (operator) {
+  const getAnswer = (number1, number2, sign) => {
+    switch (sign) {
       case '+':
-        return operand1 + operand2;
+        return number1 + number2;
       case '-':
-        return operand1 - operand2;
+        return number1 - number2;
       default:
-        return operand1 * operand2;
+        return number1 * number2;
     }
   };
 
-  const rightAnswer = getCalc();
-  const questionExpression = `${operand1} ${operator} ${operand2}`;
-  const gameLogicObj = {
-    game: 'calc',
-    question: questionExpression,
-    answer: rightAnswer,
+  const answer = getAnswer(operand1, operand2, operator);
+  const question = `${operand1} ${operator} ${operand2}`;
+  const gameData = {
+    question,
+    answer,
   };
-  return gameLogicObj;
+  return gameData;
 };
 
-const runGame = () => startGame(gameDiscription, getGameLogic);
+const runGame = () => startNewGame(gameDiscription, getGameData);
 export default runGame;

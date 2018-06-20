@@ -1,10 +1,10 @@
-import { startGame, getRoundRandomNumber } from '..';
+import startNewGame from '..';
+import getRoundRandomNumber from '../untils';
 
 const gameDiscription = 'Find the greatest common divisor of given numbers.';
 
 const getGreaterCommonDivisor = (number1, number2) => {
-  const maxNumber = (number1 > number2) ? number1 : number2;
-  const minNumber = (maxNumber === number1) ? number2 : number1;
+  const [maxNumber, minNumber] = (number1 > number2) ? [number1, number2] : [number2, number1];
 
   const getDivisor = (max, min) => {
     const interiumResult = max % min;
@@ -16,20 +16,19 @@ const getGreaterCommonDivisor = (number1, number2) => {
   return getDivisor(maxNumber, minNumber);
 };
 
-const getGameLogic = () => {
+const getGameData = () => {
   const number1 = getRoundRandomNumber(1, 100);
   const number2 = getRoundRandomNumber(1, 100);
 
-  const questionExpression = `${number1} ${number2}`;
-  const rightAnswer = getGreaterCommonDivisor(number1, number2);
+  const question = `${number1} ${number2}`;
+  const answer = getGreaterCommonDivisor(number1, number2);
 
-  const gameLogicObj = {
-    game: 'calc',
-    question: questionExpression,
-    answer: rightAnswer,
+  const gameData = {
+    question,
+    answer,
   };
-  return gameLogicObj;
+  return gameData;
 };
 
-const runGame = () => startGame(gameDiscription, getGameLogic);
+const runGame = () => startNewGame(gameDiscription, getGameData);
 export default runGame;
