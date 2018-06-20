@@ -1,36 +1,39 @@
-import { getRandomNumber, randomNumber } from './brain-even';
+import { startGame, getRoundRandomNumber } from '..';
 
-export const gameCondition = 'What is the result of the expression?';
+const gameDiscription = 'What is the result of the expression?';
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
-  const index = Math.round(getRandomNumber(0, operators.length - 1));
+  const index = getRoundRandomNumber(0, operators.length - 1);
   const operator = operators[index];
   return operator;
 };
 
-export const getCalcLogical = () => {
-  const num1 = randomNumber(1, 30);
-  const num2 = randomNumber(1, 30);
+const getGameLogic = () => {
+  const operand1 = getRoundRandomNumber(1, 30);
+  const operand2 = getRoundRandomNumber(1, 30);
   const operator = getRandomOperator();
 
   const getCalc = () => {
     switch (operator) {
       case '+':
-        return num1 + num2;
+        return operand1 + operand2;
       case '-':
-        return num1 - num2;
+        return operand1 - operand2;
       default:
-        return num1 * num2;
+        return operand1 * operand2;
     }
   };
 
-  const calcValue = getCalc();
-  const expressionValue = `${num1} ${operator} ${num2}`;
-  const resultObj = {
+  const rightAnswer = getCalc();
+  const questionExpression = `${operand1} ${operator} ${operand2}`;
+  const gameLogicObj = {
     game: 'calc',
-    expression: expressionValue,
-    calc: calcValue,
+    question: questionExpression,
+    answer: rightAnswer,
   };
-  return resultObj;
+  return gameLogicObj;
 };
+
+const runGame = () => startGame(gameDiscription, getGameLogic);
+export default runGame;
