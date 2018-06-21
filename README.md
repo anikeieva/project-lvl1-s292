@@ -1,5 +1,4 @@
 # project-lvl1-s292
-:align: center
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/8d7c4fe4628d8cc1564d/maintainability)](https://codeclimate.com/github/anikeieva/project-lvl1-s292/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/8d7c4fe4628d8cc1564d/test_coverage)](https://codeclimate.com/github/anikeieva/project-lvl1-s292/test_coverage)
@@ -50,4 +49,4 @@ sudo npm install -g brain-game_hexlet-project-anikeieva
 Each game runs with it name.
 
 For example:
-.. image:: /src/images/brain-even_example.png
+[!image](/src/images/brain-even_example.png)
