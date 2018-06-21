@@ -50,4 +50,4 @@ Each game runs with it name.
 
 For example:
 
-![brain-even_example](https://user-images.githubusercontent.com/33197158/41738432-b4385ed8-759a-11e8-882d-6e64b68f8612.png)
+![brain-even](https://user-images.githubusercontent.com/33197158/41746124-f0d8283e-75b1-11e8-89a2-11e97766448e.gif)
