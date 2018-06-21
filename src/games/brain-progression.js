@@ -5,7 +5,7 @@ const gameDiscription = 'What number is missing in this progression?';
 
 const getArithmeticProgression = (length, maxStep, minFirstNumber, maxFirstNumber) => {
   const step = getRoundRandomNumber(1, maxStep);
-  const firstNumber = getRoundRandomNumber(1, maxFirstNumber);
+  const firstNumber = getRoundRandomNumber(minFirstNumber, maxFirstNumber);
   const progression = [];
   progression.push(firstNumber);
 
