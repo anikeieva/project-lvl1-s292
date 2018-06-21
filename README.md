@@ -49,4 +49,5 @@ sudo npm install -g brain-game_hexlet-project-anikeieva
 Each game runs with it name.
 
 For example:
-[!image](/src/images/brain-even_example.png)
+
+![brain-even_example](https://user-images.githubusercontent.com/33197158/41738432-b4385ed8-759a-11e8-882d-6e64b68f8612.png)
