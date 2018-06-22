@@ -11,20 +11,28 @@ const balanceNumber = (number) => {
     let indexMin;
     let indexMax;
 
-    numerals.forEach((item, index) => {
-      if (item === max) {
-        indexMin = index;
-      } else if (item === min) {
-        indexMax = index;
+    for (let i = 0; i < numerals.length; i++) {
+      if (numerals[i] === min) {
+        indexMin = i;
+      } else if (numerals[i] === max) {
+        indexMax = i;
       }
-    });
+    }
 
     if (min === max || min + 1 === max || min === max + 1) {
       return numerals;
     }
-    const balancedNumerals = numerals.slice();
-    balancedNumerals[indexMax] = max - 1;
-    balancedNumerals[indexMin] = min + 1;
+    const balancedNumerals = [];
+
+    for (let i = 0; i < numerals.length; i++) {
+      if (i === indexMin) {
+        balancedNumerals.push(numerals[i] + 1);
+      } else if (i === indexMax) {
+        balancedNumerals.push(numerals[i] - 1);
+      } else {
+        balancedNumerals.push(numerals[i]);
+      }
+    }
 
     return balance(balancedNumerals);
   };

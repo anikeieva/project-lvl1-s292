@@ -4,19 +4,18 @@ import getRoundRandomNumber from '../untils';
 const gameDiscription = 'Is this number prime?';
 
 const isPrime = (number) => {
+  let result = true;
   if (number === 1) {
     return false;
   } else if (number === 2) {
     return true;
   }
-  const remainer = [];
+
   for (let i = 2; i < number; i++) {
-    remainer.push(number % i === 0);
+    if (number % i === 0) {
+      result = false;
+    }
   }
-  let result = true;
-  remainer.forEach((item) => {
-    if (item) result = false;
-  });
   return result;
 };
 

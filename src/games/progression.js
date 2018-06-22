@@ -15,18 +15,27 @@ const getArithmeticProgression = (length, maxStep, minFirstNumber, maxFirstNumbe
   return progression;
 };
 
-const getHiddenIndex = progression => getRoundRandomNumber(0, progression.length - 1);
-const getRightAnswer = (progression, hiddenIndex) => progression[hiddenIndex];
 const getQuestion = (progression, hiddenIndex) => {
-  const question = progression.slice();
-  question[hiddenIndex] = '..';
+  const question = [];
+
+  for (let i = 0; i < progression.length; i++) {
+    if (i === hiddenIndex) {
+      question.push('..');
+    } else {
+      question.push(progression[i]);
+    }
+  }
   return question.join(' ');
 };
 
 const getGameData = () => {
-  const progression = getArithmeticProgression(10, 10, 1, 100);
-  const hiddenIndex = getHiddenIndex(progression);
-  const answer = getRightAnswer(progression, hiddenIndex);
+  const progresLength = 10;
+  const maxStep = 10;
+  const minFirstNum = 1;
+  const maxFirstNum = 100;
+  const progression = getArithmeticProgression(progresLength, maxStep, minFirstNum, maxFirstNum);
+  const hiddenIndex = getRoundRandomNumber(0, progression.length - 1);
+  const answer = progression[hiddenIndex];
   const question = getQuestion(progression, hiddenIndex);
 
   const gameData = {
