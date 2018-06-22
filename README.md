@@ -13,7 +13,7 @@ It's a set of console brain games:
 - brain-progression,
 - brain-prime
 
-You must correct answer a one type question three times to won. Else - start game again.
+You must correct answer to one type question three times to won. Else - start game again.
 
 ##### brain-even
 
@@ -21,7 +21,7 @@ Brain-even give a number and you must type is it even or not. Answers have to be
 
 ##### brain-calc
 
-Brain-calc give expression and you must type resut.
+Brain-calc give expression and you must type result.
 
 ##### brain-gcd
 
@@ -40,7 +40,7 @@ Brain-progression give arithmetic progression without a member and you must type
 
 Brain-prime give a number and you have to answer is it prime or not.
 
-### Instalation
+### Installation
 
 sudo npm install -g brain-game_hexlet-project-anikeieva
 
@@ -48,6 +48,6 @@ sudo npm install -g brain-game_hexlet-project-anikeieva
 
 Each game runs with it name.
 
-For example:
+For example, installation, running and playing brain-even game (with different game options): 
 
 ![brain-even](https://user-images.githubusercontent.com/33197158/41746124-f0d8283e-75b1-11e8-89a2-11e97766448e.gif)
