@@ -5,13 +5,14 @@ const gameDiscription = 'Is this number prime?';
 
 const isPrime = (number) => {
   let result = true;
-  if (number === 1) {
+  if (number < 2 || number % 2 === 0) {
+    if (number === 2) {
+      return true;
+    }
     return false;
-  } else if (number === 2) {
-    return true;
   }
 
-  for (let i = 2; i < number; i++) {
+  for (let i = 3; i < number; i + 2) {
     if (number % i === 0) {
       result = false;
     }
