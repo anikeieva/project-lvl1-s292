@@ -1,5 +1,5 @@
 import startNewGame from '..';
-import getRoundRandomNumber from '../untils';
+import getRoundRandomNumber from '../utils';
 
 const gameDiscription = 'What is the result of the expression?';
 
