@@ -3,17 +3,21 @@ import getRoundRandomNumber from '../untils';
 
 const gameDiscription = 'Is this number prime?';
 
-const isPrime = (number) => {
-  if (number < 2 || number % 2 === 0) {
-    if (number === 2) {
-      return true;
-    }
+const isPrime = (n) => {
+  if (n === 2 || n === 3) {
+    return true;
+  } else if (n % 2 === 0 || n % 3 === 0) {
     return false;
   }
-  for (let i = 3; i < number; i += 2) {
-    if (number % i === 0) return false;
+
+  let w = 2;
+  for (let i = 5; i * i <= n; i += w) {
+    if (n % i === 0) {
+      return false;
+    }
+    w = 6 - w;
   }
-  return true;
+  return n > 1;
 };
 
 const getRightAnswer = n => (isPrime(n) ? 'yes' : 'no');
