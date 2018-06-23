@@ -1,6 +1,6 @@
 {
   "name": "brain-game_hexlet-project-anikeieva",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Set of console brain games",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",

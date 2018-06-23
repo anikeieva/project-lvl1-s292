@@ -3,21 +3,17 @@ import getRoundRandomNumber from '../utils';
 
 const gameDiscription = 'Is this number prime?';
 
-const isPrime = (n) => {
-  if (n === 2 || n === 3) {
-    return true;
-  } else if (n % 2 === 0 || n % 3 === 0) {
+const isPrime = (number) => {
+  if (number < 2) {
     return false;
   }
+  
+  const sqrtNumber = Math.sqrt(number);
 
-  let w = 2;
-  for (let i = 5; i * i <= n; i += w) {
-    if (n % i === 0) {
-      return false;
-    }
-    w = 6 - w;
+  for (let i = 2; i <= sqrtNumber; i++) {
+    if (number % i === 0) return false;
   }
-  return n > 1;
+  return true;
 };
 
 const getRightAnswer = n => (isPrime(n) ? 'yes' : 'no');
